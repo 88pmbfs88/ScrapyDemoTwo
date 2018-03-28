@@ -33,7 +33,7 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -43,6 +43,10 @@ DEFAULT_REQUEST_HEADERS = {
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36' ,
   'Connection': 'keep-alive',
+  'Host': 's.tuniu.com',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  # 'Cookie': 'NewProvinceId=16; NCid=232; NewProvinceName=%E6%B1%9F%E8%8B%8F; NCName=%E6%89%AC%E5%B7%9E; route=bed3b0c027a6d6d252658197499d2aa3; qdid=-9999; 17uCNRefId=RefId=0&SEFrom=&SEKeyWords=; TicketSEInfo=RefId=0&SEFrom=&SEKeyWords=; CNSEInfo=RefId=0&tcbdkeyid=&SEFrom=&SEKeyWords=&RefUrl=; __tctmc=144323752.67485715; __tctmd=144323752.737325; __tctma=144323752.1522120458823284.1522120458450.1522120458450.1522120458450.1; __tctmb=144323752.3329508118476403.1522120458450.1522120458450.1; __tctmu=144323752.0.0; __tctmz=144323752.1522120458450.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); longKey=1522120458823284; __tctrack=0; pagestate=1',
   # 'Accept-Language': 'en',
 }
 
@@ -66,9 +70,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'ScrapyDemoTwo.pipelines.ScrapydemotwoPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   # 'ScrapyDemoTwo.pipelines.ScrapydemotwoPipeline': 300,
+  'ScrapyDemoTwo.pipelines.TuniuPipline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
